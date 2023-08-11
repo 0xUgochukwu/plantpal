@@ -27,11 +27,11 @@ class MyApp extends StatelessWidget {
       ),
       home: const MainScreen(),
       routes: {
-        LoginScreen.id: (context) => const LoginScreen(),
-        SignupScreen.id: (context) => const SignupScreen(),
-        MainScreen.id: (context) => const MainScreen(),
-        HomeScreen.id: (context) => const HomeScreen(),
-        CartScreen.id: (context) => const CartScreen(),
+        LoginScreen.id: (context) => LoginScreen(),
+        SignupScreen.id: (context) =>  SignupScreen(),
+        MainScreen.id: (context) => MainScreen(),
+        HomeScreen.id: (context) =>  HomeScreen(),
+        CartScreen.id: (context) =>  CartScreen(),
       },
     );
   }

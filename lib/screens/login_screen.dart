@@ -20,6 +20,8 @@ class _LoginScreenState extends State<LoginScreen> {
   bool rememberMe = false;
   String username = '';
   String password = '';
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -99,6 +101,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             hintText: 'Username',
                             icon: Icons.person,
                             keyboardType: TextInputType.name,
+                            controller: usernameController,
+                            validate: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter a valid username';
+                              }
+                              return null;
+                            },
                             onChanged: (value) {
                               username = value != '' ? value : '';
                             },
@@ -108,6 +117,13 @@ class _LoginScreenState extends State<LoginScreen> {
                             icon: Icons.lock,
                             obscureText: true,
                             keyboardType: TextInputType.visiblePassword,
+                            controller: passwordController,
+                            validate: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter a valid password';
+                              }
+                              return null;
+                            },
                             onChanged: (value) {
                               password = value != '' ? value : '';
                             },
