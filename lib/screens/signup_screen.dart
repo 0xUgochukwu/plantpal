@@ -3,6 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:plant_app/components/authentication_button.dart';
 import 'package:plant_app/components/custom_text_field.dart';
 import 'package:plant_app/constants.dart';
+import 'package:flutter_pw_validator/flutter_pw_validator.dart';
+
 
 class SignupScreen extends StatelessWidget {
   const SignupScreen({Key? key}) : super(key: key);
@@ -50,24 +52,56 @@ class SignupScreen extends StatelessWidget {
                             icon: Icons.person,
                             keyboardType: TextInputType.name,
                             onChanged: (value) {},
+                            errorMessage: 'Please enter your Fullname',
+                            controller: fullnameController,
                           ),
                           CustomTextField(
                             hintText: 'Email',
                             icon: Icons.mail,
                             keyboardType: TextInputType.name,
                             onChanged: (value) {},
+                            errorMessage: 'Please enter your Email',
+                            validator: (value) {
+                              if (value!.isEmpty) {
+                                return 'Please enter an email address';
+                              }
+                              bool isValid = RegExp(r'^[\w-]+(\.[\w-]+)*@[\w-]+(\.[\w-]+)+$').hasMatch(value);
+                              if (!isValid) {
+                                return 'Please enter a valid email address';
+                              }
+                              return null; // Return null if the input is valid
+                            },
+
                           ),
                           CustomTextField(
                             hintText: 'Password',
                             icon: Icons.lock,
                             keyboardType: TextInputType.name,
                             onChanged: (value) {},
+                            errorMessage: 'Please enter your Password',
+                            controller: passwordController,
+                              new FlutterPwValidator(
+                                  controller: passwordController,
+                                  minLength: 8,
+                                  uppercaseCharCount: 1,
+                                  lowercaseCharCount: 1,
+                                  numericCharCount: 1,
+                                  specialCharCount: 1,
+                                  width: 400,
+                                  height: 150,
+                                  onSuccess: ()=> caffoldMessenger.of(context).showSnackBar(new SnackBar(
+                                  content: new Text("Password is matched")));
+  }},
+                                  onFail: (){}
+                              )
+
                           ),
                           CustomTextField(
                             hintText: 'Confirm Password',
                             icon: Icons.lock,
                             keyboardType: TextInputType.name,
                             onChanged: (value) {},
+                            controller: confirmPasswordController,
                           ),
                           const SizedBox(height: 15.0),
                           Row(

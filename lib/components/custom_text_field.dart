@@ -9,6 +9,7 @@ class CustomTextField extends StatelessWidget {
     this.obscureText = false,
     required this.keyboardType,
     required this.onChanged,
+    required this.errorMessage,
     Key? key,
   }) : super(key: key);
 
@@ -17,12 +18,17 @@ class CustomTextField extends StatelessWidget {
   final bool obscureText;
   final TextInputType keyboardType;
   final Function(String) onChanged;
+  final Function(String) validator;
+  final String errorMessage;
+  final String controller;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(left: 20.0, right: 20.0, bottom: 15.0),
       child: TextField(
+        controller: controller,
+        validator: validator,
         cursorColor: kDarkGreenColor,
         obscureText: obscureText,
         keyboardType: keyboardType,

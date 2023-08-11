@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "578485420153",
+    "project_id": "plantpal-ada02",
+    "storage_bucket": "plantpal-ada02.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:578485420153:android:d839b0626c3d54dfb754a8",
+        "android_client_info": {
+          "package_name": "com.example.plantpal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "578485420153-va3jhlr38b2obqc8bupru4asm8f7sp6c.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjZj5-dogWKJLy8P2aWdNI5wAoeLapZEE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "578485420153-va3jhlr38b2obqc8bupru4asm8f7sp6c.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
